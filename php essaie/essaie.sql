@@ -36,19 +36,6 @@ CREATE TABLE `commentaires` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `commentaires`
---
-
-INSERT INTO `commentaires` (`id`, `publication_id`, `user_id`, `contenu`, `date_creation`) VALUES
-(1, 1, 2, 'yes', '2025-07-30 12:07:50'),
-(2, 1, 2, 'yo comment', '2025-07-30 12:42:29'),
-(3, 2, 2, 'yoooo niga', '2025-07-31 00:13:37'),
-(4, 3, 2, 'nice', '2025-07-31 10:34:43'),
-(5, 1, 1, 'Niga broooooo', '2025-07-31 16:00:44');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `contacts`
 --
 
@@ -77,17 +64,6 @@ CREATE TABLE `demandes_amis` (
   `date_reponse` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `demandes_amis`
---
-
-INSERT INTO `demandes_amis` (`id`, `demandeur_id`, `receveur_id`, `statut`, `date_creation`, `date_reponse`) VALUES
-(5, 3, 2, 'en_attente', '2025-08-01 01:02:34', NULL),
-(6, 3, 1, 'accepte', '2025-08-01 01:02:35', '2025-08-01 17:05:08');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `likes`
 --
 
@@ -99,21 +75,6 @@ CREATE TABLE `likes` (
   `date_creation` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `likes`
---
-
-INSERT INTO `likes` (`id`, `publication_id`, `user_id`, `type`, `date_creation`) VALUES
-(1, 1, 1, 'like', '2025-07-30 11:56:00'),
-(2, 1, 2, 'like', '2025-07-30 12:07:35'),
-(3, 2, 1, 'like', '2025-07-30 12:11:47'),
-(4, 2, 2, 'like', '2025-07-31 00:13:21'),
-(5, 3, 2, 'like', '2025-07-31 10:34:28'),
-(6, 4, 3, 'like', '2025-08-01 16:29:41');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `messages`
 --
 
@@ -126,19 +87,6 @@ CREATE TABLE `messages` (
   `date_creation` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `messages`
---
-
-INSERT INTO `messages` (`id`, `expediteur_id`, `destinataire_id`, `contenu`, `lu`, `date_creation`) VALUES
-(1, 1, 2, 'man', 1, '2025-07-30 12:11:37'),
-(2, 2, 1, 'oui frere \r\ncomment', 1, '2025-07-30 12:12:50'),
-(3, 2, 1, 'oui frère', 1, '2025-07-31 16:11:56'),
-(4, 1, 2, 'hi \r\nyes 👽👽👽💻💻💻👽👽👽', 0, '2025-08-01 17:05:44');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `notifications`
 --
 
@@ -152,37 +100,6 @@ CREATE TABLE `notifications` (
   `date_creation` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `notifications`
---
-
-INSERT INTO `notifications` (`id`, `user_id`, `type`, `message`, `element_id`, `lu`, `date_creation`) VALUES
-(1, 1, 'demande_ami', 'jean ANDERSON vous a envoyé une demande d\'ami.', 2, 1, '2025-07-30 12:07:25'),
-(3, 1, 'commentaire', 'jean ANDERSON a commenté votre publication.', 1, 1, '2025-07-30 12:07:50'),
-(4, 2, 'ami_accepte', 'Marc DUJARDIN a accepté votre demande d\'ami.', 1, 1, '2025-07-30 12:11:05'),
-(5, 2, 'message', 'Marc DUJARDIN vous a envoyé un message.', 1, 1, '2025-07-30 12:11:37'),
-(6, 2, 'like', 'Marc DUJARDIN a aimé votre publication.', 2, 1, '2025-07-30 12:11:47'),
-(7, 1, 'message', 'jean ANDERSON vous a envoyé un message.', 2, 1, '2025-07-30 12:12:50'),
-(8, 1, 'commentaire', 'jean ANDERSON a commenté votre publication.', 1, 1, '2025-07-30 12:42:29'),
-(10, 1, 'ami_accepte', 'jean ANDERSON a accepté votre demande d\'ami.', 2, 1, '2025-07-31 10:33:19'),
-(12, 1, 'like', 'jean ANDERSON a aimé votre publication.', 3, 1, '2025-07-31 10:34:28'),
-(13, 1, 'commentaire', 'jean ANDERSON a commenté votre publication.', 3, 1, '2025-07-31 10:34:43'),
-(14, 2, 'demande_ami', 'Marc DUJARDIN vous a envoyé une demande d\'ami.', 1, 1, '2025-07-31 16:01:24'),
-(15, 1, 'ami_accepte', 'jean ANDERSON a accepté votre demande d\'ami.', 2, 0, '2025-07-31 16:02:28'),
-(16, 1, 'message', 'jean ANDERSON vous a envoyé un message.', 2, 0, '2025-07-31 16:11:56'),
-(17, 1, 'signalement', 'Votre publication a été signalée par jean ANDERSON.', 3, 0, '2025-07-31 16:12:40'),
-(18, 1, 'signalement', 'Votre commentaire a été signalé par un utilisateur pour : Contenu inapproprié', 5, 0, '2025-07-31 16:13:40'),
-(19, 1, 'like', 'jean ANDERSON a aimé votre publication.', 1, 0, '2025-07-31 21:04:32'),
-(20, 1, 'demande_ami', 'jean ANDERSON vous a envoyé une demande d\'ami.', 2, 0, '2025-07-31 23:34:35'),
-(21, 2, 'ami_accepte', 'Marc DUJARDIN a accepté votre demande d\'ami.', 1, 0, '2025-07-31 23:58:21'),
-(22, 2, 'demande_ami', 'Eliote ANDERSON vous a envoyé une demande d\'ami.', 3, 0, '2025-08-01 01:02:34'),
-(23, 1, 'demande_ami', 'Eliote ANDERSON vous a envoyé une demande d\'ami.', 3, 0, '2025-08-01 01:02:35'),
-(24, 3, 'ami_accepte', 'Marc DUJARDIN a accepté votre demande d\'ami.', 1, 0, '2025-08-01 17:05:08'),
-(25, 2, 'message', 'Marc DUJARDIN vous a envoyé un message.', 1, 0, '2025-08-01 17:05:44');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `password_reset_tokens`
 --
 
@@ -210,19 +127,7 @@ CREATE TABLE `publications` (
   `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `publications`
---
 
-INSERT INTO `publications` (`id`, `user_id`, `contenu`, `date_ajout`, `date_modification`, `image`) VALUES
-(1, 1, 'you gotta be', '2025-07-30 22:00:00', '2025-07-30 09:56:23', '6889ec476f2e2.jpg'),
-(2, 2, 'WhatsApp', '2000-12-09 23:00:00', '2025-07-30 13:29:14', '688a1e2a2344d.jpg'),
-(3, 1, 'hummmmmmmmmmmm', '2025-07-29 22:00:00', '2025-07-30 12:41:48', '688a130c8514d.png'),
-(4, 3, 'Les gars comment allez vous ? \r\nc\'est Mr ROBOT', '2025-07-31 22:00:00', '2025-08-01 14:29:24', NULL);
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `signalements`
 --
 
@@ -235,17 +140,6 @@ CREATE TABLE `signalements` (
   `date_creation` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `signalements`
---
-
-INSERT INTO `signalements` (`id`, `user_id`, `type`, `element_id`, `raison`, `date_creation`) VALUES
-(1, 2, 'publication', 3, 'Contenu inapproprié', '2025-07-31 16:12:40'),
-(2, 2, 'commentaire', 5, 'Contenu inapproprié', '2025-07-31 16:13:40');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `user`
 --
 
@@ -261,18 +155,6 @@ CREATE TABLE `user` (
   `photo_profil` varchar(255) NOT NULL,
   `mdp` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `user`
---
-
-INSERT INTO `user` (`id`, `nom`, `prenom`, `date_naissance`, `telephone`, `sexe`, `adresse`, `mail`, `photo_profil`, `mdp`) VALUES
-(1, 'DUJARDIN', 'Marc', '1999-08-05', '+33157895385', 'Homme', 'RUSSIE', 'touchandie007@gmail.com', '', '$2y$10$K.Xvf4XkvMY63A4QL2YjuO8R0Tb23TJ2IoRP1On2aK/zJahPh1nKy'),
-(2, 'ANDERSON', 'jean', '1999-12-28', '+33157895385', 'Femme', 'USA, Floride', '007shadowkiller007@gmail.com', '', '$2y$10$ecKJ6y3TwtHsnFcezgWoxO4N5vffgNt27rXy5K7YO1v/ge7a9ZRLu'),
-(3, 'ANDERSON', 'Eliote', '1889-08-01', '+75057918895', 'Homme', 'RUSSIE,Moscou', 'vjfbvkjhfhsf@gmail.com', '', '$2y$10$xcbUEqz8/ZieJOSL5YjsHeC1A1ZR8Si1ZJeDLGBsKpOiqihOo8XL6');
-
--- --------------------------------------------------------
-
 --
 -- Structure de la table `utilisateurs_bloques`
 --
