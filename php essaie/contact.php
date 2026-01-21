@@ -57,8 +57,8 @@ Date : " . date('d/m/Y H:i:s') . "
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';  // Utiliser Gmail SMTP
                 $mail->SMTPAuth = true;
-                $mail->Username = 'stevenamorin202@gmail.com';
-                $mail->Password = 'yopitkiepmqkjctq';  // Mot de passe d'application
+                $mail->Username = '';
+                $mail->Password = '';  // Mot de passe d'application
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
                 
@@ -73,7 +73,7 @@ Date : " . date('d/m/Y H:i:s') . "
                 
                 // Configuration de l'email
                 $mail->setFrom($email, $nom);
-                $mail->addAddress('stevenamorin202@gmail.com', 'Admin STEVEN X');
+                $mail->addAddress('', 'Admin  X');
                 $mail->addReplyTo($email, $nom);
                 
                 // Contenu de l'email
@@ -210,7 +210,7 @@ if (isset($_SESSION['user_id'])) {
                         <div class="row">
                             <div class="col-md-4 text-center">
                                 <h6>📧 Email</h6>
-                                <p>stevenamorin202@gmail.com</p>
+                                <p></p>
                             </div>
                             <div class="col-md-4 text-center">
                                 <h6>⏰ Horaires</h6>
